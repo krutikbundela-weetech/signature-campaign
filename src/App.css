@@ -1,0 +1,31 @@
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Apply animations to elements */
+.container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+header, main, footer {
+  animation: slideUp 0.6s ease-out;
+}
+
+/* Custom styles for signature canvas */
+.signature-pad-container {
+  touch-action: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+}
