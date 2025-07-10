@@ -9,8 +9,6 @@ const nodemailer = require("nodemailer");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const path = require("path");
-
 // Serve static frontend if in production
 if (process.env.NODE_ENV === "production") {
   const distPath = path.join(__dirname, "dist");
