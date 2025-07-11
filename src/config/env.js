@@ -5,10 +5,10 @@ export const config = {
   frontendUrl: import.meta.env.VITE_FRONTEND_URL || 'http://localhost:5173',
   
   // Admin Configuration
-  adminEmail: import.meta.env.VITE_ADMIN_EMAIL || 'krutik@weetechsolution.com',
+  adminEmail: import.meta.env.VITE_ADMIN_EMAIL,
   
   // Application Configuration
-  appName: import.meta.env.VITE_APP_NAME || 'Employee Trip Signature Campaign',
+  appName: import.meta.env.VITE_APP_NAME,
   
   // Development flags
   isDevelopment: import.meta.env.DEV,

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import SignatureGallery from './SignatureGallery';
+import config from '../config/env';
 
 const HRBoardView = ({ user, signatures, employees }) => {
   const [funnyMessages] = useState([
@@ -219,7 +220,7 @@ const HRBoardView = ({ user, signatures, employees }) => {
         <footer className="mt-12 text-center">
           <div className="inline-block p-4 bg-white/60 backdrop-blur-sm rounded-lg border border-neutral-border shadow-sm">
             <p className="text-neutral-dark/70">
-              © {new Date().getFullYear()} Employee Trip Signature Campaign - 
+              © {new Date().getFullYear()} {config.appName} - 
               <span className="text-brand font-semibold"> Making Dreams Come True, One Signature at a Time</span> ✨
             </p>
           </div>

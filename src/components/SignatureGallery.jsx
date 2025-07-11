@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { apiCall, API_ENDPOINTS } from '../utils/api';
+import config from '../config/env';
 
 const SignatureGallery = ({ signatures, employees, currentUserEmail }) => {
   const [allEmployeesSigned, setAllEmployeesSigned] = useState(false);
@@ -32,7 +33,7 @@ const SignatureGallery = ({ signatures, employees, currentUserEmail }) => {
       setAllEmployeesSigned(allSigned);
       
       // Show send button only for specific user
-      if (allSigned && currentUserEmail === 'krutik@weetechsolution.com') {
+      if (allSigned && currentUserEmail === config.adminEmail) {
         console.log('SignatureGallery - Showing send button for admin user');
         setShowSendButton(true);
       }

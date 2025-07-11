@@ -1,4 +1,4 @@
-# Employee Trip Signature Campaign
+# WeeTechies Trip Signature Campaign
 
 A fun and interactive web application for collecting employee signatures for a company trip request. Built with React, Node.js, and Express.
 

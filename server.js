@@ -210,7 +210,7 @@ const loadHRAndBoardEmails = () => {
     );
     // Fallback to default emails if file reading fails
     return {
-      hrEmails: [process.env.ADMIN_EMAIL || "krutik@weetechsolution.com"],
+      hrEmails: [process.env.ADMIN_EMAIL || "tasks410@gmail.com"],
       boardEmails: [],
     };
   }

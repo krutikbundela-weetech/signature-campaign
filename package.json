@@ -4,12 +4,10 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "server": "node server.js",
     "dev:full": "concurrently \"npm run server\" \"npm run dev\"",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "setup-env": "node scripts/setup-env.js",
     "start": "node server.js"
   },
   "dependencies": {
