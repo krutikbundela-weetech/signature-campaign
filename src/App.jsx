@@ -5,7 +5,6 @@ import SignatureCanvas from "./components/SignatureCanvas";
 import SignatureGallery from "./components/SignatureGallery";
 import HRBoardView from "./components/HRBoardView";
 import { apiCall, API_ENDPOINTS } from "./utils/api";
-import config from "./config/env";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -130,7 +129,7 @@ function App() {
     localStorage.removeItem("userEmail");
     localStorage.removeItem("userName");
     localStorage.removeItem("userType");
-    
+
     // Reset user state
     setUser(null);
   };

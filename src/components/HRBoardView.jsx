@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
-import SignatureGallery from './SignatureGallery';
-import config from '../config/env';
+import { useState, useEffect } from "react";
+import SignatureGallery from "./SignatureGallery";
 
 const HRBoardView = ({ user, signatures, employees }) => {
   const [funnyMessages] = useState([
@@ -8,17 +7,19 @@ const HRBoardView = ({ user, signatures, employees }) => {
     "Breaking news: Your employees have discovered that life exists beyond office walls and are requesting immediate exploration! 🗺️",
     "The team has unanimously voted that their productivity would increase by 200% after a company trip (results may vary, but enthusiasm guaranteed)! 📈",
     "Your staff has been spotted googling 'how to escape office life legally' - we think a company trip might be the answer! 🏃‍♂️",
-    "Emergency meeting called by your employees: Motion to trade conference rooms for beach views has been unanimously approved! 🏖️"
+    "Emergency meeting called by your employees: Motion to trade conference rooms for beach views has been unanimously approved! 🏖️",
   ]);
 
-  const [currentMessage, setCurrentMessage] = useState('');
+  const [currentMessage, setCurrentMessage] = useState("");
   const [signatureCount, setSignatureCount] = useState(0);
   const [employeeCount, setEmployeeCount] = useState(0);
 
   useEffect(() => {
     // Set a random funny message
-    setCurrentMessage(funnyMessages[Math.floor(Math.random() * funnyMessages.length)]);
-    
+    setCurrentMessage(
+      funnyMessages[Math.floor(Math.random() * funnyMessages.length)]
+    );
+
     // Count signatures and employees
     setSignatureCount(Array.isArray(signatures) ? signatures.length : 0);
     setEmployeeCount(Array.isArray(employees) ? employees.length : 0);
@@ -30,9 +31,9 @@ const HRBoardView = ({ user, signatures, employees }) => {
   };
 
   const getUserTypeDisplay = () => {
-    if (user.userType === 'hr') return 'HR Manager';
-    if (user.userType === 'board') return 'Board Director';
-    return 'Manager';
+    if (user.userType === "hr") return "HR Manager";
+    if (user.userType === "board") return "Board Director";
+    return "Manager";
   };
 
   return (
@@ -242,54 +243,6 @@ const HRBoardView = ({ user, signatures, employees }) => {
             employees={employees}
             currentUserEmail={user.email}
           />
-        </div>
-
-        {/* Action Buttons */}
-        <div className="text-center space-y-4">
-          <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-neutral-border shadow-lg">
-            <p className="text-lg text-neutral-dark mb-4">
-              Ready to make your team's dreams come true? 🌟
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-extra-seagreen to-brand hover:from-extra-seagreen/90 hover:to-brand/90 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-                <span className="flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  Approve Trip Request
-                </span>
-              </button>
-
-              <button className="bg-gradient-to-r from-accent-lavender to-accent-yellow hover:from-accent-lavender/90 hover:to-accent-yellow/90 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-                <span className="flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                    />
-                  </svg>
-                  Discuss with Team
-                </span>
-              </button>
-            </div>
-          </div>
         </div>
 
         {/* Footer */}
