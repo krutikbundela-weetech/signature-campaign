@@ -29,16 +29,13 @@ function App() {
   // Function to load signatures from server
   const loadSignaturesFromServer = async () => {
     try {
-      console.log("Fetching signatures from server...");
       const response = await apiCall(API_ENDPOINTS.signatures);
       if (response.ok) {
         const serverSignatures = await response.json();
-        console.log("Signatures loaded from server:", serverSignatures);
 
         if (Array.isArray(serverSignatures)) {
           setSignatures(serverSignatures);
         } else {
-          console.log("No signatures found on server or invalid format");
           setSignatures([]);
         }
       } else {
@@ -59,7 +56,6 @@ function App() {
   };
 
   const handleSignatureSave = async (signatureData) => {
-    console.log("Saving signature for:", signatureData.name);
 
     try {
       // Save signature to server
@@ -69,7 +65,6 @@ function App() {
       });
 
       if (response.ok) {
-        console.log("Signature saved to server successfully");
         // Reload signatures from server to get the updated list
         await loadSignaturesFromServer();
       } else {
@@ -108,7 +103,6 @@ function App() {
       });
 
       if (response.ok) {
-        console.log("All signatures cleared from server");
         setSignatures([]);
         alert("All signatures have been cleared successfully.");
       } else {

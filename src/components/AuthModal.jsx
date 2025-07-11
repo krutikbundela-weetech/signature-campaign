@@ -92,7 +92,6 @@ const AuthModal = ({ onAuthenticate }) => {
 
     // Determine user type
     const userType = getUserType(email);
-    console.log(" AuthModal.jsx:89 ~ handleSubmit ~ userType:", userType);
 
     // Store in localStorage
     localStorage.setItem("userEmail", email);

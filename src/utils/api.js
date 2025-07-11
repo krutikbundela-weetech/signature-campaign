@@ -31,7 +31,6 @@ export const apiCall = async (endpoint, options = {}) => {
   const baseUrl = getApiBaseUrl();
   const url = `${baseUrl}${endpoint}`;
   
-  console.log(`Making API call to: ${url}`);
   
   return fetch(url, {
     headers: {

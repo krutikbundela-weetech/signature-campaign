@@ -8,9 +8,6 @@ const SignatureGallery = ({ signatures, employees, currentUserEmail }) => {
   const [sendSuccess, setSendSuccess] = useState(false);
 
   useEffect(() => {
-    console.log("SignatureGallery - Received signatures:", signatures);
-    console.log("SignatureGallery - Received employees:", employees);
-    console.log("SignatureGallery - Current user email:", currentUserEmail);
 
     // Ensure signatures and employees are arrays
     const signaturesArray = Array.isArray(signatures) ? signatures : [];
@@ -23,20 +20,16 @@ const SignatureGallery = ({ signatures, employees, currentUserEmail }) => {
       const signedEmails = validSignatures.map((sig) =>
         sig.email.toLowerCase()
       );
-      console.log("SignatureGallery - Valid signatures:", validSignatures);
-      console.log("SignatureGallery - Signed emails:", signedEmails);
 
       const allSigned = employeesArray.every(
         (emp) =>
           emp && emp.email && signedEmails.includes(emp.email.toLowerCase())
       );
 
-      console.log("SignatureGallery - All employees signed:", allSigned);
       setAllEmployeesSigned(allSigned);
 
       // Show send button only for specific user
       if (allSigned && currentUserEmail === import.meta.env.VITE_ADMIN_EMAIL) {
-        console.log("SignatureGallery - Showing send button for admin user");
         setShowSendButton(true);
       }
     }
@@ -46,7 +39,6 @@ const SignatureGallery = ({ signatures, employees, currentUserEmail }) => {
     setIsSending(true);
 
     try {
-      console.log("Preparing to send signatures to HR:", signatures);
 
       // Ensure we have valid signatures to send
       const validSignatures = Array.isArray(signatures)
@@ -62,25 +54,18 @@ const SignatureGallery = ({ signatures, employees, currentUserEmail }) => {
         return;
       }
 
-      console.log("Valid signatures to send:", validSignatures.length);
       const payload = { signatures: validSignatures };
-      console.log("Sending payload:", payload);
 
       // Call the server endpoint to send email
-      console.log("Sending request to send email API");
       const response = await apiCall(API_ENDPOINTS.sendEmail, {
         method: "POST",
         body: JSON.stringify(payload),
       });
 
-      console.log("Response received, status:", response.status);
-      console.log("Response headers:", [...response.headers.entries()]);
 
       const result = await response.json();
-      console.log("Response data:", result);
 
       if (response.ok) {
-        console.log("Email sent successfully:", result);
         setSendSuccess(true);
         alert("Email sent successfully to HR & Board Directors!");
       } else {
