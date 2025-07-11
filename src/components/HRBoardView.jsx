@@ -42,19 +42,31 @@ const HRBoardView = ({ user, signatures, employees }) => {
         <header className="mb-12 text-center transform animate-slide-down">
           <div className="inline-block p-8 bg-gradient-to-r from-accent-lavender to-accent-yellow rounded-3xl shadow-2xl mb-6 animate-pulse-gentle">
             <div className="flex items-center justify-center mb-4">
-              <svg className="w-16 h-16 text-white mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6" />
+              <svg
+                className="w-16 h-16 text-white mr-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"
+                />
               </svg>
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">
                   Team Trip Request
                 </h1>
-                <p className="text-xl text-white/90 mt-2">Dashboard for {getUserTypeDisplay()}</p>
+                <p className="text-xl text-white/90 mt-2">
+                  Dashboard for {getUserTypeDisplay()}
+                </p>
               </div>
             </div>
             <div className="w-32 h-1 bg-white/50 mx-auto rounded-full"></div>
           </div>
-          
+
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-neutral-border animate-bounce-subtle">
             <p className="text-2xl text-neutral-dark font-semibold">
               Welcome, {user.name}! 👋
@@ -69,8 +81,18 @@ const HRBoardView = ({ user, signatures, employees }) => {
         <div className="bg-white rounded-3xl shadow-2xl p-8 mb-8 border border-neutral-border/20 transform animate-scale-in">
           <div className="text-center mb-8">
             <div className="w-20 h-20 bg-gradient-to-r from-brand to-extra-turquoise rounded-full mx-auto mb-6 flex items-center justify-center animate-pulse-gentle">
-              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+              <svg
+                className="w-10 h-10 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"
+                />
               </svg>
             </div>
             <h2 className="text-3xl font-bold text-neutral-dark bg-gradient-to-r from-brand to-extra-turquoise bg-clip-text text-transparent mb-4">
@@ -82,16 +104,24 @@ const HRBoardView = ({ user, signatures, employees }) => {
             <p className="text-xl text-neutral-dark leading-relaxed mb-6">
               Dear Esteemed {getUserTypeDisplay()},
             </p>
-            
+
             <p className="text-lg text-neutral-dark leading-relaxed mb-6">
               {currentMessage}
             </p>
-            
+
             <div className="bg-white rounded-xl p-6 shadow-inner mb-6">
               <h3 className="text-xl font-bold text-neutral-dark mb-4 flex items-center">
                 <span className="w-6 h-6 bg-extra-seagreen rounded-full mr-3 flex items-center justify-center">
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  <svg
+                    className="w-4 h-4 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </span>
                 Why Your Team Deserves This Trip:
@@ -99,41 +129,59 @@ const HRBoardView = ({ user, signatures, employees }) => {
               <ul className="space-y-3 text-neutral-dark">
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-accent-coral rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span>They've been working harder than a coffee machine on Monday morning ☕</span>
+                  <span>
+                    They've been working harder than a coffee machine on Monday
+                    morning ☕
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-accent-coral rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span>Team bonding activities will boost collaboration (and create hilarious memories) 🤝</span>
+                  <span>
+                    Team bonding activities will boost collaboration (and create
+                    hilarious memories) 🤝
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-accent-coral rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span>A change of scenery will spark creativity and innovation 💡</span>
+                  <span>
+                    A change of scenery will spark creativity and innovation 💡
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-accent-coral rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span>Happy employees = productive employees = successful company 📈</span>
+                  <span>
+                    Happy employees = productive employees = successful company
+                    📈
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-accent-coral rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span>They promise to come back with better tans and even better ideas 🌞</span>
+                  <span>
+                    They promise to come back with better tans and even better
+                    ideas 🌞
+                  </span>
                 </li>
               </ul>
             </div>
 
             <p className="text-lg text-neutral-dark leading-relaxed mb-6">
-              We promise this isn't just an elaborate scheme to avoid spreadsheets (okay, maybe it's 10% that, but 90% genuine team building)! 
-              Your employees have put their hearts, souls, and digital signatures into this request.
+              We promise this isn't just an elaborate scheme to avoid
+              spreadsheets (okay, maybe it's 10% that, but 90% genuine team
+              building)! Your employees have put their hearts, souls, and
+              digital signatures into this request.
             </p>
 
             <p className="text-lg text-neutral-dark leading-relaxed mb-6">
-              Think of it as an investment in happiness, productivity, and the prevention of office cabin fever! 
-              Plus, imagine the amazing team photos and success stories you'll have to share! 📸
+              Think of it as an investment in happiness, productivity, and the
+              prevention of office cabin fever! Plus, imagine the amazing team
+              photos and success stories you'll have to share! 📸
             </p>
 
             <p className="text-xl text-neutral-dark font-semibold">
-              Yours hopefully (and with fingers crossed),<br/>
+              Yours hopefully (and with fingers crossed),
+              <br />
               <span className="bg-gradient-to-r from-brand to-extra-turquoise bg-clip-text text-transparent">
-                The Dream Team ✨
+                The WeeTechies ✨
               </span>
             </p>
           </div>
@@ -144,22 +192,28 @@ const HRBoardView = ({ user, signatures, employees }) => {
           <h3 className="text-2xl font-bold text-neutral-dark mb-6 text-center">
             📊 Petition Progress
           </h3>
-          
+
           <div className="bg-gradient-to-r from-neutral-light to-white rounded-xl p-6 mb-6">
             <div className="flex justify-between items-center mb-4">
-              <span className="text-lg font-semibold text-neutral-dark">Signatures Collected</span>
-              <span className="text-2xl font-bold text-brand">{signatureCount} / {employeeCount}</span>
+              <span className="text-lg font-semibold text-neutral-dark">
+                Signatures Collected
+              </span>
+              <span className="text-2xl font-bold text-brand">
+                {signatureCount} / {employeeCount}
+              </span>
             </div>
-            
+
             <div className="w-full bg-neutral-border rounded-full h-4 mb-4">
-              <div 
+              <div
                 className="bg-gradient-to-r from-brand to-extra-turquoise h-4 rounded-full transition-all duration-1000 ease-out"
                 style={{ width: `${getProgressPercentage()}%` }}
               ></div>
             </div>
-            
+
             <div className="text-center">
-              <span className="text-3xl font-bold text-extra-seagreen">{getProgressPercentage()}%</span>
+              <span className="text-3xl font-bold text-extra-seagreen">
+                {getProgressPercentage()}%
+              </span>
               <span className="text-neutral-dark ml-2">Complete</span>
             </div>
           </div>
@@ -168,12 +222,14 @@ const HRBoardView = ({ user, signatures, employees }) => {
             <div className="bg-gradient-to-r from-extra-seagreen/10 to-brand/10 border-2 border-extra-seagreen/30 rounded-2xl p-6 text-center animate-bounce-subtle">
               <div className="flex items-center justify-center mb-4">
                 <span className="text-4xl mr-3 animate-spin-slow">🎉</span>
-                <h4 className="text-2xl font-bold text-extra-seagreen">100% Participation Achieved!</h4>
+                <h4 className="text-2xl font-bold text-extra-seagreen">
+                  100% Participation Achieved!
+                </h4>
                 <span className="text-4xl ml-3 animate-spin-slow">🎉</span>
               </div>
               <p className="text-lg text-neutral-dark">
-                Every single team member has signed the petition! 
-                The enthusiasm is through the roof! 🚀
+                Every single team member has signed the petition! The enthusiasm
+                is through the roof! 🚀
               </p>
             </div>
           )}
@@ -181,8 +237,8 @@ const HRBoardView = ({ user, signatures, employees }) => {
 
         {/* Signature Gallery Section */}
         <div className="mb-8 transform animate-slide-up animation-delay-200">
-          <SignatureGallery 
-            signatures={signatures} 
+          <SignatureGallery
+            signatures={signatures}
             employees={employees}
             currentUserEmail={user.email}
           />
@@ -197,17 +253,37 @@ const HRBoardView = ({ user, signatures, employees }) => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-gradient-to-r from-extra-seagreen to-brand hover:from-extra-seagreen/90 hover:to-brand/90 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                 <span className="flex items-center justify-center">
-                  <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg
+                    className="w-6 h-6 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                   Approve Trip Request
                 </span>
               </button>
-              
+
               <button className="bg-gradient-to-r from-accent-lavender to-accent-yellow hover:from-accent-lavender/90 hover:to-accent-yellow/90 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                 <span className="flex items-center justify-center">
-                  <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  <svg
+                    className="w-6 h-6 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                    />
                   </svg>
                   Discuss with Team
                 </span>
@@ -220,8 +296,12 @@ const HRBoardView = ({ user, signatures, employees }) => {
         <footer className="mt-12 text-center">
           <div className="inline-block p-4 bg-white/60 backdrop-blur-sm rounded-lg border border-neutral-border shadow-sm">
             <p className="text-neutral-dark/70">
-              © {new Date().getFullYear()} {config.appName} - 
-              <span className="text-brand font-semibold"> Making Dreams Come True, One Signature at a Time</span> ✨
+              © {new Date().getFullYear()} {config.appName} -
+              <span className="text-brand font-semibold">
+                {" "}
+                Making Dreams Come True, One Signature at a Time
+              </span>{" "}
+              ✨
             </p>
           </div>
         </footer>

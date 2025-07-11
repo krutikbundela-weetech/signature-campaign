@@ -304,7 +304,7 @@ app.post("/api/send-email", async (req, res) => {
         
         <p style="font-size: 16px;">Looking forward to your enthusiastic "YES!"</p>
         
-        <p style="font-size: 16px;">Yours hopefully,<br>The Dream Team</p>
+        <p style="font-size: 16px;">Yours hopefully,<br>The WeeTechies</p>
         
         <div style="text-align: center; margin-top: 30px; font-size: 12px; color: #888;">
           <p>This email was automatically generated from our ${

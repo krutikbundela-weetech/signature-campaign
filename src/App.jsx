@@ -124,6 +124,17 @@ function App() {
     }
   };
 
+  // Function to handle logout
+  const handleLogout = () => {
+    // Clear localStorage
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userType");
+    
+    // Reset user state
+    setUser(null);
+  };
+
   // Check if user is HR or Board member
   const isHROrBoard =
     user && (user.userType === "hr" || user.userType === "board");
@@ -144,6 +155,30 @@ function App() {
         <div className="min-h-screen bg-gradient-to-br from-neutral-light via-white to-accent-yellow/10 py-8 px-4 animate-fade-in">
           <div className="container mx-auto">
             <header className="mb-8 text-center transform animate-slide-down">
+              {/* Logout button - positioned above the main header content */}
+              <div className="flex justify-end mb-4">
+                <button
+                  onClick={handleLogout}
+                  className="bg-gradient-to-r from-accent-coral to-accent-coral/80 hover:from-accent-coral/90 hover:to-accent-coral text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 flex items-center gap-2 z-10"
+                  title="Logout"
+                >
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                    />
+                  </svg>
+                  Logout
+                </button>
+              </div>
+
               <div className="inline-block p-6 bg-gradient-to-r from-brand to-extra-turquoise rounded-2xl shadow-lg mb-4 animate-pulse-gentle">
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg">
                   {config.appName}
