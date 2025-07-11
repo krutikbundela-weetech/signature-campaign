@@ -33,8 +33,8 @@ const SignatureGallery = ({ signatures, employees, currentUserEmail }) => {
       setAllEmployeesSigned(allSigned);
       
       // Show send button only for specific user
-      if (allSigned && currentUserEmail === config.adminEmail) {
-        console.log('SignatureGallery - Showing send button for admin user');
+      if (allSigned && currentUserEmail === import.meta.env.VITE_ADMIN_EMAIL) {
+        console.log("SignatureGallery - Showing send button for admin user");
         setShowSendButton(true);
       }
     }

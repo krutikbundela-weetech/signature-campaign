@@ -181,7 +181,7 @@ function App() {
 
               <div className="inline-block p-6 bg-gradient-to-r from-brand to-extra-turquoise rounded-2xl shadow-lg mb-4 animate-pulse-gentle">
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg">
-                  {config.appName}
+                  {import.meta.env.VITE_APP_NAME}
                 </h1>
                 <div className="w-24 h-1 bg-accent-yellow mx-auto rounded-full"></div>
               </div>
@@ -273,7 +273,7 @@ function App() {
               </div>
 
               {/* Debug controls - only visible for admin */}
-              {user.email === config.adminEmail && (
+              {user.email === import.meta.env.VITE_ADMIN_EMAIL && (
                 <div className="mt-8 p-6 bg-gradient-to-r from-accent-coral/10 to-accent-coral/5 border border-accent-coral/20 rounded-xl shadow-lg transform animate-slide-up animation-delay-400">
                   <h3 className="text-lg font-bold mb-4 text-accent-coral flex items-center">
                     <span className="w-3 h-3 bg-accent-coral rounded-full mr-2 animate-pulse"></span>
@@ -292,7 +292,7 @@ function App() {
             <footer className="mt-16 text-center transform animate-fade-in animation-delay-600">
               <div className="inline-block p-4 bg-white/60 backdrop-blur-sm rounded-lg border border-neutral-border shadow-sm">
                 <p className="text-neutral-dark/70">
-                  © {new Date().getFullYear()} {config.appName}
+                  © {new Date().getFullYear()} {import.meta.env.VITE_APP_NAME}
                 </p>
               </div>
             </footer>

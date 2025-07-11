@@ -296,7 +296,7 @@ const HRBoardView = ({ user, signatures, employees }) => {
         <footer className="mt-12 text-center">
           <div className="inline-block p-4 bg-white/60 backdrop-blur-sm rounded-lg border border-neutral-border shadow-sm">
             <p className="text-neutral-dark/70">
-              © {new Date().getFullYear()} {config.appName} -
+              © {new Date().getFullYear()} {import.meta.env.VITE_APP_NAME} -
               <span className="text-brand font-semibold">
                 {" "}
                 Making Dreams Come True, One Signature at a Time

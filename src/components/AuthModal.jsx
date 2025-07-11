@@ -110,23 +110,8 @@ const AuthModal = ({ onAuthenticate }) => {
     <div className="fixed inset-0 bg-gradient-to-br from-neutral-dark/80 via-brand/20 to-extra-midnight/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fade-in">
       <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md transform animate-scale-in border border-neutral-border/20">
         <div className="text-center mb-6">
-          <div className="w-16 h-16 bg-gradient-to-r from-brand to-extra-turquoise rounded-full mx-auto mb-4 flex items-center justify-center animate-pulse-gentle">
-            <svg
-              className="w-8 h-8 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-              />
-            </svg>
-          </div>
           <h2 className="text-3xl font-bold text-neutral-dark bg-gradient-to-r from-brand to-extra-turquoise bg-clip-text text-transparent">
-            Employee Authentication
+            WeeTechies Trip Signature Campaign
           </h2>
           <div className="w-12 h-1 bg-gradient-to-r from-accent-yellow to-accent-coral mx-auto mt-2 rounded-full"></div>
         </div>
@@ -156,7 +141,7 @@ const AuthModal = ({ onAuthenticate }) => {
               htmlFor="name"
               className="block text-neutral-dark font-semibold</label> mb-2"
             >
-              Full Name
+              Username
             </label>
             <input
               type="text"
@@ -164,7 +149,7 @@ const AuthModal = ({ onAuthenticate }) => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full p-4 border-2 border-neutral-border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition-all duration-300 bg-neutral-light/30"
-              placeholder="Enter your full name"
+              placeholder="johnsmith"
             />
           </div>
 
@@ -181,32 +166,42 @@ const AuthModal = ({ onAuthenticate }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full p-4 border-2 border-neutral-border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition-all duration-300 bg-neutral-light/30"
-              placeholder="Enter your email address"
+              placeholder="johnsmith@weetechsolution.com"
             />
           </div>
-          <p className="flex items-center gap-2 mt-1 px-3 py-2 rounded-lg bg-gradient-to-r from-brand/10 to-extra-turquoise/10 border border-brand/10 text-xs text-neutral-dark shadow-sm">
-            <svg
-              className="w-4 h-4 text-brand"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z"
-              />
-            </svg>
-            <span>
-              <span className="font-semibold">Format:</span> Use your company
-              email (e.g.,{" "}
-              <span className="font-mono">johnsmith@weetechsolution.com</span>).
-              Name should match the part before{" "}
-              <span className="font-mono">@</span> (e.g.,{" "}
-              <span className="font-mono">johnsmith</span>).
-            </span>
-          </p>
+
+          <div className="mt-4 p-4 rounded-xl bg-gradient-to-r from-brand/5 via-extra-turquoise/10 to-brand/5 border border-brand/20">
+            <div className="flex items-start gap-3">
+              <svg
+                className="w-5 h-5 text-brand mt-1 flex-shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z"
+                />
+              </svg>
+              <div className="space-y-2">
+                <h3 className="font-semibold text-neutral-dark">
+                  Required Format
+                </h3>
+                <div className="text-sm text-neutral-dark/80 space-y-1">
+                  <p>Please use your company email address:</p>
+                  <p className="font-mono bg-white/50 p-2 rounded-lg border border-brand/10">
+                    johnsmith@weetechsolution.com
+                  </p>
+                  <p>Your username should match the email prefix:</p>
+                  <p className="font-mono bg-white/50 p-2 rounded-lg border border-brand/10">
+                    johnsmith
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <button
             type="submit"
