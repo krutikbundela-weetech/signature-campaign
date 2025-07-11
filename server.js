@@ -9,18 +9,6 @@ const nodemailer = require("nodemailer");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Serve static frontend if in production
-if (process.env.NODE_ENV === "production") {
-  const distPath = path.join(__dirname, "dist");
-  app.use(express.static(distPath));
-
-  // Handle client-side routing fallback (SPA)
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(distPath, "index.html"));
-  });
-}
-
-
 const corsOptions = {
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps or curl requests)
@@ -370,6 +358,17 @@ app.post("/api/send-email", async (req, res) => {
     res.status(500).json({ error: "Failed to send email: " + error.message });
   }
 });
+
+// Serve static frontend if in production
+if (process.env.NODE_ENV === "production") {
+  const distPath = path.join(__dirname, "dist");
+  app.use(express.static(distPath));
+
+  // ✅ Prevent frontend from catching /api requests
+  app.get(/^\/(?!api).*/, (req, res) => {
+    res.sendFile(path.join(distPath, "index.html"));
+  });
+}
 
 // Start the server
 app.listen(PORT, () => {

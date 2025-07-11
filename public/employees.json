@@ -1,16 +1,17 @@
 {
   "employees": [
     { "name": "abc", "email": "abc@weetechsolution.com" },
-    { "name": "Board Member", "email": "xyz@weetechsolution.com" },
-    { "name": "HR Manager", "email": "jeel@weetechsolution.com" }
+    { "name": "xyz", "email": "xyz@weetechsolution.com" },
+    { "name": "asd", "email": "asd@weetechsolution.com" },
+    { "name": "tasks410", "email": "tasks410@gmail.com" }
   ],
   "hrBoard": {
     "hr": [
-      { "name": "HR Manager", "email": "jeel@weetechsolution.com" }
+      { "name": "jeel", "email": "jeel@weetechsolution.com" }
     ],
     "board": [
-      { "name": "Director", "email": "krutik@weetechsolution.com" },
-      { "name": "Director", "email": "ritika@weetechsolution.com" }
+      { "name": "krutik", "email": "krutik@weetechsolution.com" },
+      { "name": "ritika", "email": "ritika@weetechsolution.com" }
     ]
   }
 }
