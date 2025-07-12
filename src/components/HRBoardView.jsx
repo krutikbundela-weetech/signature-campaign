@@ -3,27 +3,51 @@ import SignatureGallery from "./SignatureGallery";
 
 const HRBoardView = ({ user, signatures, employees }) => {
   const [funnyMessages] = useState([
+    "Employees have started practicing their beach cricket skills in the hallway. It's getting dangerous. 🏐",
+    "Rumor has it, the coffee machine is planning a strike unless the team gets a vacation. ☕🚨",
     "Your hardworking team has officially declared a 'spreadsheet emergency' and urgently needs vitamin D therapy! 🌞",
-    "Breaking news: Your employees have discovered that life exists beyond office walls and are requesting immediate exploration! 🗺️",
     "The team has unanimously voted that their productivity would increase by 200% after a company trip (results may vary, but enthusiasm guaranteed)! 📈",
+    "Team spirit is high, but so is the stack of Bugs. Only a trip can flatten it! 📚✈️",
+    "The team promises to bring back sand, seashells, and fresh ideas. 🐚",
+    "Spreadsheet cells can't contain our wanderlust anymore! 🧳",
+    "We've run out of motivational posters. Time for real inspiration! 🖼️",
+    "If laughter is the best medicine, a trip is the ultimate prescription. 😂✈️",
     "Your staff has been spotted googling 'how to escape office life legally' - we think a company trip might be the answer! 🏃‍♂️",
-    "Emergency meeting called by your employees: Motion to trade conference rooms for beach views has been unanimously approved! 🏖️",
   ]);
 
   const [currentMessage, setCurrentMessage] = useState("");
   const [signatureCount, setSignatureCount] = useState(0);
   const [employeeCount, setEmployeeCount] = useState(0);
+  const [isMessageVisible, setIsMessageVisible] = useState(true);
 
   useEffect(() => {
-    // Set a random funny message
-    setCurrentMessage(
-      funnyMessages[Math.floor(Math.random() * funnyMessages.length)]
-    );
-
     // Count signatures and employees
     setSignatureCount(Array.isArray(signatures) ? signatures.length : 0);
     setEmployeeCount(Array.isArray(employees) ? employees.length : 0);
-  }, [signatures, employees, funnyMessages]);
+  }, [signatures, employees]);
+
+  useEffect(() => {
+    let currentIndex = 0;
+
+    const rotateMessage = () => {
+      setIsMessageVisible(false); // Trigger fade out
+
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % funnyMessages.length;
+        setCurrentMessage(funnyMessages[currentIndex]);
+        setIsMessageVisible(true); // Trigger fade in
+      }, 300); // Wait for fade out to complete
+    };
+
+    // Set initial message
+    setCurrentMessage(funnyMessages[0]);
+    setIsMessageVisible(true);
+
+    // Start the interval
+    const intervalId = setInterval(rotateMessage, 5000); // Total time for each message (including fade)
+
+    return () => clearInterval(intervalId);
+  }, [funnyMessages]);
 
   const getProgressPercentage = () => {
     if (employeeCount === 0) return 0;
@@ -106,7 +130,11 @@ const HRBoardView = ({ user, signatures, employees }) => {
               Dear Esteemed {getUserTypeDisplay()},
             </p>
 
-            <p className="text-lg text-neutral-dark leading-relaxed mb-6">
+            <p
+              className={`text-lg text-neutral-dark leading-relaxed mb-6 transition-opacity duration-500 ease-in-out ${
+                isMessageVisible ? "opacity-100" : "opacity-0"
+              }`}
+            >
               {currentMessage}
             </p>
 
@@ -151,8 +179,8 @@ const HRBoardView = ({ user, signatures, employees }) => {
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-accent-coral rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <span>
-                    Happy employees = productive employees = successful company
-                    📈
+                    Happy WeeTechies = productive WeeTechies = successful
+                    WeeTech 📈
                   </span>
                 </li>
                 <li className="flex items-start">
@@ -167,8 +195,8 @@ const HRBoardView = ({ user, signatures, employees }) => {
 
             <p className="text-lg text-neutral-dark leading-relaxed mb-6">
               We promise this isn't just an elaborate scheme to avoid
-              spreadsheets (okay, maybe it's 10% that, but 90% genuine team
-              building)! Your employees have put their hearts, souls, and
+              spreadsheets and Bugs (okay, maybe it's 10% that, but 90% genuine
+              team building)! Your employees have put their hearts, souls, and
               digital signatures into this request.
             </p>
 
@@ -229,7 +257,7 @@ const HRBoardView = ({ user, signatures, employees }) => {
                 <span className="text-4xl ml-3 animate-spin-slow">🎉</span>
               </div>
               <p className="text-lg text-neutral-dark">
-                Every single team member has signed the petition! The enthusiasm
+                Every single WeeTechie has signed the petition! The enthusiasm
                 is through the roof! 🚀
               </p>
             </div>
