@@ -63,7 +63,6 @@ const HRBoardView = ({ user, signatures, employees }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-light via-white to-accent-yellow/10 py-8 px-4">
       <div className="container mx-auto max-w-4xl">
-        {/* Header */}
         <header className="mb-12 text-center transform animate-slide-down">
           <div className="inline-block p-8 bg-gradient-to-r from-accent-lavender to-accent-yellow rounded-3xl shadow-2xl mb-6 animate-pulse-gentle">
             <div className="flex items-center justify-center mb-4">
@@ -85,7 +84,9 @@ const HRBoardView = ({ user, signatures, employees }) => {
                   Team Trip Request
                 </h1>
                 <p className="text-xl text-white/90 mt-2">
-                  Dashboard for {getUserTypeDisplay()}
+                  Dashboard for{" "}
+                  {getUserTypeDisplay().charAt(0).toUpperCase() +
+                    getUserTypeDisplay().slice(1)}
                 </p>
               </div>
             </div>
@@ -94,7 +95,8 @@ const HRBoardView = ({ user, signatures, employees }) => {
 
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-neutral-border animate-bounce-subtle">
             <p className="text-2xl text-neutral-dark font-semibold">
-              Welcome, {user.name}! 👋
+              Welcome, {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!
+              👋
             </p>
             <p className="text-lg text-neutral-dark/70 mt-2">
               Your team has something important to tell you...

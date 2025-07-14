@@ -8,7 +8,6 @@ const SignatureGallery = ({ signatures, employees, currentUserEmail }) => {
   const [sendSuccess, setSendSuccess] = useState(false);
 
   useEffect(() => {
-
     // Ensure signatures and employees are arrays
     const signaturesArray = Array.isArray(signatures) ? signatures : [];
     const employeesArray = Array.isArray(employees) ? employees : [];
@@ -39,7 +38,6 @@ const SignatureGallery = ({ signatures, employees, currentUserEmail }) => {
     setIsSending(true);
 
     try {
-
       // Ensure we have valid signatures to send
       const validSignatures = Array.isArray(signatures)
         ? signatures.filter((sig) => sig && sig.email && sig.signature)
@@ -61,7 +59,6 @@ const SignatureGallery = ({ signatures, employees, currentUserEmail }) => {
         method: "POST",
         body: JSON.stringify(payload),
       });
-
 
       const result = await response.json();
 
@@ -119,7 +116,7 @@ const SignatureGallery = ({ signatures, employees, currentUserEmail }) => {
         </div>
       )}
 
-      {showSendButton && (
+      {currentUserEmail === import.meta.env.VITE_ADMIN_EMAIL && (
         <div className="mb-8 flex justify-center">
           {!sendSuccess ? (
             <button
