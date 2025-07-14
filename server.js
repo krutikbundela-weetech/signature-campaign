@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // MongoDB configuration
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://signature-campaign:signature-campaign@cluster0.wt66alg.mongodb.net/";
+const MONGODB_URI = process.env.MONGODB_URI || "";
 const DB_NAME = process.env.DB_NAME || "signature-campaign";
 const COLLECTION_NAME = "signatures";
 
