@@ -1,6 +1,5 @@
 {
   "employees": [
-    { "name": "sakshichandel", "email": "sakshichandel@weetechsolution.com" },
     { "name": "harshtambakhe", "email": "harshtambakhe@weetechsolution.com" },
     { "name": "chandan", "email": "chandan@weetechsolution.com" },
     { "name": "ritika", "email": "ritika@weetechsolution.com" },
@@ -48,8 +47,6 @@
     { "name": "shubham", "email": "shubham@weetechsolution.com" },
     { "name": "samrat", "email": "samrat@weetechsolution.com" },
     { "name": "yash", "email": "yash@weetechsolution.com" },
-    { "name": "kashish", "email": "kashish@weetechsolution.com" },
-    { "name": "divya", "email": "divya@weetechsolution.com" },
     { "name": "tasks410admin", "email": "tasks410@gmail.com" }
   ],
   "hrBoard": {
