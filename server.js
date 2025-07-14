@@ -5,9 +5,40 @@ const fs = require("fs");
 const path = require("path");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
+const { MongoClient } = require("mongodb");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// MongoDB configuration
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://signature-campaign:signature-campaign@cluster0.wt66alg.mongodb.net/";
+const DB_NAME = process.env.DB_NAME || "signature-campaign";
+const COLLECTION_NAME = "signatures";
+
+let db;
+let signaturesCollection;
+
+// Connect to MongoDB
+async function connectToMongoDB() {
+  try {
+    const client = new MongoClient(MONGODB_URI);
+    await client.connect();
+    console.log("Connected to MongoDB successfully");
+    
+    db = client.db(DB_NAME);
+    signaturesCollection = db.collection(COLLECTION_NAME);
+    
+    // Create index on email field for faster queries and uniqueness
+    await signaturesCollection.createIndex({ email: 1 }, { unique: true });
+    console.log("MongoDB index created on email field");
+  } catch (error) {
+    console.error("Failed to connect to MongoDB:", error);
+    process.exit(1);
+  }
+}
+
+// Initialize MongoDB connection
+connectToMongoDB();
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -62,21 +93,8 @@ app.use((req, res, next) => {
   next();
 });
 
-// Ensure SavedSignatures directory exists
-const savedSignaturesDir = path.join(
-  __dirname,
-  process.env.SIGNATURES_DIR || "public/SavedSignatures"
-);
-console.log("SavedSignatures directory path:", savedSignaturesDir);
-if (!fs.existsSync(savedSignaturesDir)) {
-  console.log("Creating SavedSignatures directory");
-  fs.mkdirSync(savedSignaturesDir, { recursive: true });
-} else {
-  console.log("SavedSignatures directory already exists");
-}
-
 // API endpoint to save signature
-app.post("/api/save-signature", (req, res) => {
+app.post("/api/save-signature", async (req, res) => {
   try {
     const signatureData = req.body;
 
@@ -84,73 +102,76 @@ app.post("/api/save-signature", (req, res) => {
       return res.status(400).json({ error: "Invalid signature data" });
     }
 
-    // Create a safe filename from the email
-    const safeEmail = signatureData.email.replace(/[^a-zA-Z0-9]/g, "_");
-    const filename = `${safeEmail}.json`;
-    const filePath = path.join(savedSignaturesDir, filename);
+    // Add timestamp to signature data
+    const signatureWithTimestamp = {
+      ...signatureData,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    };
 
-    // Save the signature data to a file
-    fs.writeFileSync(filePath, JSON.stringify(signatureData, null, 2));
+    // Save signature to MongoDB (upsert: update if exists, insert if not)
+    const result = await signaturesCollection.replaceOne(
+      { email: signatureData.email },
+      signatureWithTimestamp,
+      { upsert: true }
+    );
 
-    console.log(`Signature saved to ${filePath}`);
-    res
-      .status(200)
-      .json({ success: true, message: "Signature saved successfully" });
+    console.log(`Signature saved to MongoDB for email: ${signatureData.email}`);
+    
+    const message = result.upsertedCount > 0 
+      ? "Signature saved successfully" 
+      : "Signature updated successfully";
+    
+    res.status(200).json({ 
+      success: true, 
+      message,
+      isNew: result.upsertedCount > 0
+    });
   } catch (error) {
     console.error("Error saving signature:", error);
+    
+    // Handle duplicate key error (though unlikely with upsert)
+    if (error.code === 11000) {
+      return res.status(409).json({ error: "Signature already exists for this email" });
+    }
+    
     res.status(500).json({ error: "Failed to save signature" });
   }
 });
 
 // API endpoint to get all signatures
-app.get("/api/signatures", (req, res) => {
+app.get("/api/signatures", async (req, res) => {
   try {
-    const signatures = [];
-
-    // Read all files in the SavedSignatures directory
-    const files = fs.readdirSync(savedSignaturesDir);
-
-    files.forEach((file) => {
-      if (file.endsWith(".json")) {
-        const filePath = path.join(savedSignaturesDir, file);
-        const fileContent = fs.readFileSync(filePath, "utf8");
-        try {
-          const signatureData = JSON.parse(fileContent);
-          signatures.push(signatureData);
-        } catch (error) {
-          console.error(`Error parsing ${file}:`, error);
-        }
-      }
-    });
-
-    res.status(200).json(signatures);
+    // Fetch all signatures from MongoDB
+    const signatures = await signaturesCollection.find({}).toArray();
+    
+    console.log(`Retrieved ${signatures.length} signatures from MongoDB`);
+    
+    // Remove MongoDB's _id field from response for cleaner output
+    const cleanSignatures = signatures.map(({ _id, ...signature }) => signature);
+    
+    res.status(200).json(cleanSignatures);
   } catch (error) {
-    console.error("Error getting signatures:", error);
+    console.error("Error getting signatures from MongoDB:", error);
     res.status(500).json({ error: "Failed to get signatures" });
   }
 });
 
 // API endpoint to clear all signatures
-app.delete("/api/clear-signatures", (req, res) => {
+app.delete("/api/clear-signatures", async (req, res) => {
   try {
-    // Read all files in the SavedSignatures directory
-    const files = fs.readdirSync(savedSignaturesDir);
-
-    // Delete all JSON files
-    files.forEach((file) => {
-      if (file.endsWith(".json")) {
-        const filePath = path.join(savedSignaturesDir, file);
-        fs.unlinkSync(filePath);
-        console.log(`Deleted signature file: ${file}`);
-      }
+    // Delete all signatures from MongoDB
+    const result = await signaturesCollection.deleteMany({});
+    
+    console.log(`Deleted ${result.deletedCount} signatures from MongoDB`);
+    
+    res.status(200).json({ 
+      success: true, 
+      message: `All signatures cleared successfully. Deleted ${result.deletedCount} signatures.`,
+      deletedCount: result.deletedCount
     });
-
-    console.log("All signatures cleared successfully");
-    res
-      .status(200)
-      .json({ success: true, message: "All signatures cleared successfully" });
   } catch (error) {
-    console.error("Error clearing signatures:", error);
+    console.error("Error clearing signatures from MongoDB:", error);
     res.status(500).json({ error: "Failed to clear signatures" });
   }
 });
