@@ -1,18 +1,68 @@
 {
   "employees": [
-    { "name": "abc", "email": "abc@weetechsolution.com" },
-    { "name": "xyz", "email": "xyz@weetechsolution.com" },
-    { "name": "asd", "email": "asd@weetechsolution.com" },
-    { "name": "tasks410", "email": "tasks410@gmail.com" }
+    { "name": "sakshichandel", "email": "sakshichandel@weetechsolution.com" },
+    { "name": "harshtambakhe", "email": "harshtambakhe@weetechsolution.com" },
+    { "name": "chandan", "email": "chandan@weetechsolution.com" },
+    { "name": "ritika", "email": "ritika@weetechsolution.com" },
+    { "name": "saifali", "email": "saifali@weetechsolution.com" },
+    { "name": "ajay", "email": "ajay@weetechsolution.com" },
+    { "name": "gauri", "email": "gauri@weetechsolution.com" },
+    { "name": "pankti", "email": "pankti@weetechsolution.com" },
+    { "name": "aniket", "email": "aniket@weetechsolution.com" },
+    { "name": "aniketsinh", "email": "aniketsinh@weetechsolution.com" },
+    { "name": "kishansakariya", "email": "kishansakariya@weetechsolution.com" },
+    { "name": "prince", "email": "prince@weetechsolution.com" },
+    { "name": "dipika", "email": "dipika@weetechsolution.com" },
+    { "name": "sakshi", "email": "sakshi@weetechsolution.com" },
+    { "name": "smit", "email": "smit@weetechsolution.com" },
+    { "name": "vipin", "email": "vipin@weetechsolution.com" },
+    { "name": "devanshi", "email": "devanshi@weetechsolution.com" },
+    { "name": "dhruv", "email": "dhruv@weetechsolution.com" },
+    { "name": "umang", "email": "umang@weetechsolution.com" },
+    { "name": "krutisaliya", "email": "krutisaliya@weetechsolution.com" },
+    { "name": "arin", "email": "arin@weetechsolution.com" },
+    { "name": "nikita", "email": "nikita@weetechsolution.com" },
+    { "name": "subham", "email": "subham@weetechsolution.com" },
+    { "name": "parassheth", "email": "parassheth@weetechsolution.com" },
+    { "name": "khushil", "email": "khushil@weetechsolution.com" },
+    { "name": "sahil", "email": "sahil@weetechsolution.com" },
+    { "name": "jeelrajput", "email": "jeelrajput@weetechsolution.com" },
+    { "name": "swati", "email": "swati@weetechsolution.com" },
+    { "name": "heet", "email": "heet@weetechsolution.com" },
+    { "name": "anusree", "email": "anusree@weetechsolution.com" },
+    { "name": "tushar", "email": "tushar@weetechsolution.com" },
+    { "name": "manthan", "email": "manthan@weetechsolution.com" },
+    { "name": "ganeshsharma", "email": "ganeshsharma@weetechsolution.com" },
+    { "name": "mihir", "email": "mihir@weetechsolution.com" },
+    { "name": "jeel", "email": "jeel@weetechsolution.com" },
+    { "name": "jaysanchaniya", "email": "jaysanchaniya@weetechsolution.com" },
+    { "name": "krutik", "email": "krutik@weetechsolution.com" },
+    { "name": "manish", "email": "manish@weetechsolution.com" },
+    { "name": "amit", "email": "amit@weetechsolution.com" },
+    { "name": "yogesh", "email": "yogesh@weetechsolution.com" },
+    { "name": "satya", "email": "satya@weetechsolution.com" },
+    { "name": "nikhilsuthar", "email": "nikhilsuthar@weetechsolution.com" },
+    { "name": "julikumari", "email": "julikumari@weetechsolution.com" },
+    { "name": "alisha", "email": "alisha@weetechsolution.com" },
+    { "name": "shweta", "email": "shweta@weetechsolution.com" },
+    { "name": "shubham", "email": "shubham@weetechsolution.com" },
+    { "name": "samrat", "email": "samrat@weetechsolution.com" },
+    { "name": "yash", "email": "yash@weetechsolution.com" },
+    { "name": "kashish", "email": "kashish@weetechsolution.com" },
+    { "name": "divya", "email": "divya@weetechsolution.com" },
+    { "name": "tasks410admin", "email": "tasks410@gmail.com" }
   ],
   "hrBoard": {
     "hr": [
-      { "name": "jeel", "email": "jeel@weetechsolution.com" },
-      { "name": "aniket", "email": "aniket@weetechsolution.com" }
+      { "name": "khevana", "email": "khevana@weetechsolution.com" },
+      { "name": "shivani", "email": "shivani@weetechsolution.com" }
     ],
     "board": [
-      { "name": "krutik", "email": "krutik@weetechsolution.com" },
-      { "name": "ritika", "email": "ritika@weetechsolution.com" }
+      { "name": "sagar", "email": "sagar@weetechsolution.com" },
+      { "name": "shaival", "email": "shaival@weetechsolution.com" },
+      { "name": "yagnik", "email": "yagnik@weetechsolution.com" },
+      { "name": "akash", "email": "akash@weetechsolution.com" },
+      { "name": "chandrapal", "email": "chandrapal@weetechsolution.com" }
     ]
   }
 }
